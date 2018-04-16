@@ -1,0 +1,33 @@
+Option Compare Database
+
+Public Function FieldNames() As String
+
+    Dim sTable As String    
+    Dim rs As DAO.Recordset    
+    Dim n As Long    
+    Dim sResult As String
+    
+    sTable = InputBox("Escriba el nombre de la tabla:")    
+      If sTable = "" Then        
+          Exit Function    
+      End If
+      
+    Set rs = CurrentDb.OpenRecordset(sTable)
+    
+    With rs        
+      For n = 0 To .Fields.Count - 1            
+        sResult = sResult & .Fields(n).Name & vbCrLf        
+      Next 'n        
+      .Close    
+    End With
+    
+    Set rs = Nothing
+    
+    InputBox "Result:" & vbCrLf & vbCrLf _
+             & "Copie este texto (se ve amontonado, pero asigna cada nombre a una linea)", _            
+             "FieldNames()", sResult
+End Function
+
+Sub Test1()
+FieldNames
+End Sub
