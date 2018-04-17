@@ -1,0 +1,27 @@
+'' Name: Carlos Santillán
+' Date: April 4th, 2018
+' Description: Code that copy-pastes a Worksheet into a new Excel workbook'
+
+Option Explicit
+
+Sub CopyTest1()
+
+    Dim wbI As Workbook, wbO As Workbook    
+    Dim wsI As Worksheet, wsO As Worksheet
+    
+    Set wbI = ThisWorkbook          'Source/Input Workbook       
+    Set wsI = wbI.Sheets("Sheet1")      'Set the relevant sheet from where you want to copy
+    Set wbO = Workbooks.Add         'Destination/Output Workbook
+    
+    With wbO            
+        Set wsO = wbO.Sheets("Sheet1")      'Set the relevant sheet to where you want to paste
+        
+        .SaveAs Filename:="Directory\New_Workbook.xls", FileFormat:=56    'Save the file
+        
+        wsI.Range("A1:BG200").Copy          'Copy the range
+        
+        'Paste it in Cell A1. Change as applicable        
+        wsO.Range("A1").PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, _        
+        SkipBlanks:=False, Transpose:=False            
+    End With    
+End Sub
