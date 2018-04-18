@@ -6,8 +6,13 @@ Option Explicit
 
 Sub CopyTest1()
 
-    Dim wbI As Workbook, wbO As Workbook    
-    Dim wsI As Worksheet, wsO As Worksheet
+    Dim wbI As Workbook     'Input Workbook    
+    Dim wbO As Workbook     'Output Workbook    
+    Dim wsI1 As Worksheet   'Worksheet to copy    
+    Dim wsI2 As Worksheet   'Worksheet to copy    
+    Dim wsO1 As Worksheet   'Worksheet to be pasted into    
+    Dim wsO2 As Worksheet   'Worksheet to be pasted into
+
     
     Set wbI = ThisWorkbook          'Source/Input Workbook       
     Set wsI = wbI.Sheets("Sheet1")      'Set the relevant sheet from where you want to copy
