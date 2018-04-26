@@ -6,7 +6,7 @@
 
 Option Explicit
 
-Sub CopyTest1()
+Sub CopyNumRows()
 
     Dim wbI As Workbook     'Input Workbook
     Dim wbO As Workbook     'Output Workbook
@@ -16,30 +16,38 @@ Sub CopyTest1()
     Dim wsO1 As Worksheet   'Worksheet to be pasted into
     Dim wsO2 As Worksheet   'Worksheet to be pasted into
     Dim path As String      'Variable in which we´ll save the file´s path
+    Dim bottom1 As Integer  'Variable that catches the number of the last row with data
+    Dim bottom2 As Integer  'Variable that sets the value for the total number of lines with data
     
     '   Set value for the variable path
-    path = "...\Outputs\File_name.xls"
+    path = "\\...\Outputs\File_name.xls"
 
     Set wbI = ThisWorkbook          'Source/Input Workbook
    
-    Set wsI1 = wbI.Sheets("IO")     'Set the relevant sheet from where you want to copy
+    'Set the relevant sheet from where you want to copy
+    Set wsI1 = wbI.Sheets("IO")
+    
+    bottom1 = wbI.Sheets("LocSet").Range("A" & Rows.Count).End(xlUp).Row    'Returns the number of the last row with info in it
+    bottom2 = bottom1 - 7                                                   'Sets the actual number of rows with info (there are 7 spaces above)
+    
     Set wsI2 = wbI.Sheets("CV")     'Set the relevant sheet from where you want to copy
     
     Set wbO = Workbooks.Add         'Destination/Output Workbook
 
     With wbO
     
-        Set wsO1 = wbO.Sheets("Sheet1")      'Set the relevant sheet to where you want to paste
+        Set wsO1 = wbO.Sheets("Sheet1")             'Set the 1st relevant sheet to where you want to paste
         
-        wsI1.Range("A1:BG200").Copy          'Copy the range
+        wsI1.Range("A1:" & "BG" & bottom2).Copy     'Copy the range according to rows with data in them
 
         'Paste it in Cell A1. Change as applicable
         wsO1.Range("A1").PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, _
         SkipBlanks:=False, Transpose:=False
         
-        Set wsO2 = wbO.Sheets("Sheet2")
+        Set wsO2 = wbO.Sheets("Sheet2")             'Set the 2nd relevant sheet to where you want to paste
         
-        wsI2.Range("A1:BJ200").Copy
+        'Copy the range, only constant values
+        wsI2.Range("A1:AX2000").Copy
         
         wsO2.Range("A1").PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, _
         SkipBlanks:=False, Transpose:=False
@@ -53,5 +61,4 @@ Sub CopyTest1()
     wbK.Sheets(2).Name = "CV"
         
 End Sub
-
 
