@@ -1,0 +1,69 @@
+'
+'   Name: Carlos Santillán
+'   Descripción: Sub para copiar datos de la hoja "Orden de Trabajo" a nuestro formato final
+'
+
+Sub CopyOrdenTrabajo()
+    
+    '
+    '   DATOS GENERALES
+    '
+    Worksheets("Esp_Empresarial").txtnumpoliza.Text = Worksheets("Orden de Trabajo").Cells(4, 3).Value          ' No. de Póliza
+    Worksheets("Esp_Empresarial").txtasegurado.Text = Worksheets("Orden de Trabajo").Cells(15, 3).Value          ' Asegurado
+    Worksheets("Esp_Empresarial").txtasegadicionales.Text = Worksheets("Orden de Trabajo").Cells(15, 6).Value          ' Asegurados Adicionales
+    Worksheets("Esp_Empresarial").txtinivigencia.Text = Worksheets("Orden de Trabajo").Cells(11, 3).Value          ' Inicio de Vigencia
+    Worksheets("Esp_Empresarial").txtfinvigencia.Text = Worksheets("Orden de Trabajo").Cells(12, 3).Value          ' Fin de Vigencia
+    Worksheets("Esp_Empresarial").txtactividad.Text = Worksheets("Orden de Trabajo").Cells(16, 6).Value          ' Actividad Asegurada
+    Worksheets("Esp_Empresarial").txtdescripcion.Text = Worksheets("Orden de Trabajo").Cells(17, 6).Value        ' Descripción del Proyecto
+    Worksheets("Esp_Empresarial").txtubicacion.Text = Worksheets("Orden de Trabajo").Cells(16, 3).Value          ' Ubicación
+    Worksheets("Esp_Empresarial").txtterritorialidad.Text = Worksheets("Orden de Trabajo").Cells(17, 3).Value          ' Territorialidad
+    
+    
+    Worksheets("Datos Especificacion").Cells(12, 9).Value = Worksheets("Orden de Trabajo").Cells(14, 3).Value          ' Moneda
+    
+    '
+    '   VALORES TOTALES DECLARADOS
+    '
+    Worksheets("Esp_Empresarial").txtvtedificio.Text = Worksheets("Orden de Trabajo").Cells(30, 3).Value          ' Inmueble
+    Worksheets("Esp_Empresarial").txtvtmejoras.Text = Worksheets("Orden de Trabajo").Cells(30, 6).Value           ' Mejoras y adaptaciones
+    Worksheets("Esp_Empresarial").txtvtobras.Text = Worksheets("Orden de Trabajo").Cells(31, 6).Value             ' Obras en proceso
+    Worksheets("Esp_Empresarial").txtvtmaquinaria.Text = Worksheets("Orden de Trabajo").Cells(32, 6).Value        ' Maquinaria
+    Worksheets("Esp_Empresarial").txtvtcontenidos.Text = Worksheets("Orden de Trabajo").Cells(31, 3).Value        ' Contenidos
+    Worksheets("Esp_Empresarial").txtvtequipo.Text = Worksheets("Orden de Trabajo").Cells(33, 6).Value            ' Equipo Electrónico
+    Worksheets("Esp_Empresarial").txtvtexistencias.Text = Worksheets("Orden de Trabajo").Cells(34, 6).Value       ' Existencias
+    
+    
+    '
+    '   LÍMITE MÁXIMO DE RESPONSABILIDAD
+    '
+    Worksheets("Esp_Empresarial").txtlmr.Text = Worksheets("Orden de Trabajo").Cells(37, 6).Value                 ' LMR Incendio, TEV, Hidro
+    Worksheets("Esp_Empresarial").txtlmrcombustion.Text = Worksheets("Orden de Trabajo").Cells(38, 6).Value       ' LMR Combustión Espontánea
+    Worksheets("Esp_Empresarial").txtlmrbienes.Text = Worksheets("Orden de Trabajo").Cells(39, 6).Value           ' Bienes sujetos a CE
+    Worksheets("Esp_Empresarial").txtlmrremocion.Text = Worksheets("Orden de Trabajo").Cells(40, 6).Value         ' LMR Remoción de Escombros
+    '
+    '   DEDUCIBLES POR COBERTURA
+    '
+    Worksheets("Esp_Empresarial").txtdedinc1.Text = Worksheets("Orden de Trabajo").Cells(43, 6).Value          ' Incendio Monto
+    Worksheets("Esp_Empresarial").txtdedinc2.Text = Worksheets("Orden de Trabajo").Cells(44, 6).Value          ' Incendio % / pérdida
+    Worksheets("Esp_Empresarial").txtdedinc3.Text = Worksheets("Orden de Trabajo").Cells(45, 6).Value          ' Incendio % / valores
+    Worksheets("Esp_Empresarial").txtdedtev1.Text = Worksheets("Orden de Trabajo").Cells(46, 6).Value          ' TEV Monto
+    Worksheets("Esp_Empresarial").txtdedtev2.Text = Worksheets("Orden de Trabajo").Cells(47, 6).Value          ' TEV % / pérdida
+    Worksheets("Esp_Empresarial").txtdedtev3.Text = Worksheets("Orden de Trabajo").Cells(48, 6).Value          ' TEV % / valores
+    Worksheets("Esp_Empresarial").txtdedhid1.Text = Worksheets("Orden de Trabajo").Cells(49, 6).Value          ' Hidro Monto
+    Worksheets("Esp_Empresarial").txtdedhid2.Text = Worksheets("Orden de Trabajo").Cells(50, 6).Value          ' Hidro % / pérdida
+    Worksheets("Esp_Empresarial").txtdedhid3.Text = Worksheets("Orden de Trabajo").Cells(51, 6).Value          ' Hidro % / valores
+    Worksheets("Esp_Empresarial").txtdedcomb1.Text = Worksheets("Orden de Trabajo").Cells(52, 6).Value         ' Combustión Monto
+    Worksheets("Esp_Empresarial").txtdedcomb2.Text = Worksheets("Orden de Trabajo").Cells(53, 6).Value         ' Combustión % / pérdida
+    Worksheets("Esp_Empresarial").txtdedcomb3.Text = Worksheets("Orden de Trabajo").Cells(54, 6).Value         ' Combustión % / valores
+    Worksheets("Esp_Empresarial").txtdedrem1.Text = Worksheets("Orden de Trabajo").Cells(55, 6).Value          ' Remoción Monto
+    Worksheets("Esp_Empresarial").txtdedrem2.Text = Worksheets("Orden de Trabajo").Cells(56, 6).Value          ' Remoción % / pérdida
+    Worksheets("Esp_Empresarial").txtdedrem3.Text = Worksheets("Orden de Trabajo").Cells(57, 6).Value          ' Remoción % / valores
+    '
+    '   Coaseguros
+    '
+    Worksheets("Esp_Empresarial").txtcoatev.Text = Worksheets("Orden de Trabajo").Cells(46, 3).Value            ' Coaseguro TEV
+    Worksheets("Esp_Empresarial").txtcoahidro.Text = Worksheets("Orden de Trabajo").Cells(47, 3).Value          ' Coaseguro Hidro
+    
+    
+
+End Sub
