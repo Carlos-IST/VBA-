@@ -1,0 +1,18 @@
+Sub AutomateWord()
+
+
+
+    Set wordapp = CreateObject("word.Application")
+
+
+
+    wordapp.documents.Open "C:\Users\S8C9V6\Desktop\HCA\Policy_Issuing_Template - 2.docm"
+
+
+
+    wordapp.Visible = True
+
+
+
+End Sub
+
