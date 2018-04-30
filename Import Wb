@@ -1,0 +1,55 @@
+'
+'   Name: Carlos Santillán
+'   Descripción: Abre una ventana para buscar la Orden de Trabajo, se selecciona y toma la hoja de trabajo indicada en el código
+'
+Sub ImportOrdenTrabajo()
+
+'Last cell in column
+Dim WS As Worksheet
+Dim LastCell As Range
+Dim LastCellRowNumber As Long
+
+Set WS = Worksheets("Orden de Trabajo")
+With WS
+    Set LastCell = .Cells(.Rows.Count, "B").End(xlUp)
+    LastCellRowNumber = LastCell.Row + 1
+End With
+
+Dim wb As Workbook, wb2 As Workbook
+Dim vFile As Variant
+
+'Set source workbook
+Set wb = ActiveWorkbook
+
+'Open the target workbook
+vFile = Application.GetOpenFilename("Excel-files,*.xlsx", _
+    1, "Select One File To Open", , False)
+
+'if the user didn't select a file, exit sub
+If TypeName(vFile) = "Boolean" Then Exit Sub
+
+Workbooks.Open vFile
+
+'Set selectedworkbook
+Set wb2 = ActiveWorkbook
+
+'Select cells to copy
+wb2.Worksheets("I-0014").Range("B2:M100").Select
+Selection.Copy
+
+'Go back to original workbook you want to paste into
+wb.Activate
+
+'Paste starting at the last empty row
+wb.Worksheets("Orden de Trabajo").Range("B" & LastCellRowNumber).Select
+Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+    :=False, Transpose:=False
+Application.CutCopyMode = False
+Application.ScreenUpdating = True
+
+'Close and save the workbook you copied from
+wb2.Save
+wb2.Close
+
+End Sub
+
