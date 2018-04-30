@@ -1,0 +1,103 @@
+'
+'   Name: Carlos Santillán
+'   Descripción: Botón para borrar contenido de las celdas (mantiene formatos)
+
+Sub BorraData()
+    Range("I5:I111").ClearContents
+    Range("K35:K111").ClearContents
+    
+End Sub
+
+Sub ClearOrden()
+    Range("B4:M110").ClearContents
+End Sub
+
+Sub BorraAux()
+    Range("K1:K5476").ClearContents
+    Range("Q1:Q5476").ClearContents
+End Sub
+
+Sub BorraUbicaciones()
+    Range("C123:Q200").ClearContents
+End Sub
+
+Sub BorraTextosManuales()
+
+Sheets("Datos Especificacion").txtbox1.Text = ""
+Sheets("Datos Especificacion").txtbox2.Text = ""
+Sheets("Datos Especificacion").txtbox3.Text = ""
+Sheets("Datos Especificacion").txtbox4.Text = ""
+Sheets("Datos Especificacion").txtbox5.Text = ""
+Sheets("Datos Especificacion").txtbox6.Text = ""
+Sheets("Datos Especificacion").txtbox7.Text = ""
+Sheets("Datos Especificacion").txtbox8.Text = ""
+Sheets("Datos Especificacion").txtbox9.Text = ""
+Sheets("Datos Especificacion").txtbox10.Text = ""
+Sheets("Datos Especificacion").txtbox11.Text = ""
+Sheets("Datos Especificacion").txtbox12.Text = ""
+Sheets("Datos Especificacion").txtbox13.Text = ""
+Sheets("Datos Especificacion").txtbox14.Text = ""
+Sheets("Datos Especificacion").txtbox15.Text = ""
+Sheets("Datos Especificacion").txtbox16.Text = ""
+Sheets("Datos Especificacion").txtbox17.Text = ""
+Sheets("Datos Especificacion").txtbox18.Text = ""
+Sheets("Datos Especificacion").txtbox19.Text = ""
+Sheets("Datos Especificacion").txtbox20.Text = ""
+Sheets("Datos Especificacion").txtbox21.Text = ""
+Sheets("Datos Especificacion").txtbox22.Text = ""
+Sheets("Datos Especificacion").txtbox23.Text = ""
+Sheets("Datos Especificacion").txtbox24.Text = ""
+Sheets("Datos Especificacion").txtbox25.Text = ""
+Sheets("Datos Especificacion").txtbox26.Text = ""
+Sheets("Datos Especificacion").txtbox27.Text = ""
+Sheets("Datos Especificacion").txtbox28.Text = ""
+Sheets("Datos Especificacion").txtbox29.Text = ""
+Sheets("Datos Especificacion").txtbox30.Text = ""
+Sheets("Datos Especificacion").txtbox31.Text = ""
+Sheets("Datos Especificacion").txtbox32.Text = ""
+Sheets("Datos Especificacion").txtbox33.Text = ""
+Sheets("Datos Especificacion").txtbox34.Text = ""
+Sheets("Datos Especificacion").txtbox35.Text = ""
+Sheets("Datos Especificacion").txtbox36.Text = ""
+Sheets("Datos Especificacion").txtbox37.Text = ""
+Sheets("Datos Especificacion").txtbox38.Text = ""
+Sheets("Datos Especificacion").txtbox39.Text = ""
+Sheets("Datos Especificacion").txtbox40.Text = ""
+Sheets("Datos Especificacion").txtbox41.Text = ""
+Sheets("Datos Especificacion").txtbox42.Text = ""
+Sheets("Datos Especificacion").txtbox43.Text = ""
+Sheets("Datos Especificacion").txtbox44.Text = ""
+Sheets("Datos Especificacion").txtbox45.Text = ""
+Sheets("Datos Especificacion").txtbox46.Text = ""
+Sheets("Datos Especificacion").txtbox47.Text = ""
+
+End Sub
+
+Sub BorraDedBI()
+
+Range("BO2:BQ5476").ClearContents
+'Range("BU5:BU22").ClearContents
+Range("BL2:BM5476").ClearContents
+
+Sheets("Datos Especificacion").pcor1.Text = ""
+Sheets("Datos Especificacion").pcor2.Text = ""
+Sheets("Datos Especificacion").pcor3.Text = ""
+Sheets("Datos Especificacion").pcor4.Text = ""
+Sheets("Datos Especificacion").pcor5.Text = ""
+Sheets("Datos Especificacion").pcor6.Text = ""
+
+Sheets("Datos Especificacion").pctev1.Text = ""
+Sheets("Datos Especificacion").pctev2.Text = ""
+Sheets("Datos Especificacion").pctev3.Text = ""
+Sheets("Datos Especificacion").pctev4.Text = ""
+Sheets("Datos Especificacion").pctev5.Text = ""
+Sheets("Datos Especificacion").pctev6.Text = ""
+
+Sheets("Datos Especificacion").pch1.Text = ""
+Sheets("Datos Especificacion").pch2.Text = ""
+Sheets("Datos Especificacion").pch3.Text = ""
+Sheets("Datos Especificacion").pch4.Text = ""
+Sheets("Datos Especificacion").pch5.Text = ""
+Sheets("Datos Especificacion").pch6.Text = ""
+
+End Sub
