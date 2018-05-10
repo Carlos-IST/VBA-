@@ -1,0 +1,49 @@
+'
+'   Author: Carlos Santillán
+'   Date: May 2018
+'   Description: Gets the Covariance Matrix for the specified sotcks
+'
+Sub PortfolioCovariance()
+    
+    '------Variable declaration-------------------------------------------------------------------------------------------
+    Dim i As Integer
+    Dim j As Integer
+    Dim colnum As Integer
+    Dim matrix() As Double
+    Dim rng As Range
+    '------END VARIABLE DECLARATION---------------------------------------------------------------------------------------
+    
+    '----Sets titles for the Covariance Matrix----------------------------------------------------------------------------
+    Sheets("Portafolio").Select
+    Range("B5").Select
+    Range(Selection, Selection.End(xlToRight)).Select       ' Selects every title from the stocks
+    Selection.Copy                                          ' Copies selection
+    Range("AA5").Select                                     ' Selects column titles for the matrix
+    ActiveSheet.Paste
+    Range("Z6").Select                                      ' Selects row titles for the matrix
+    
+    Selection.PasteSpecial Paste:=xlPasteAll, Operation:=xlNone, SkipBlanks:= _
+        False, Transpose:=True                                                      ' Pastes the transpose
+    Range("Z5").Select
+    '------END OF TITLE SETTING-------------------------------------------------------------------------------------------
+    
+    '------Calculates Portfolio´s Covariance Matrix-----------------------------------------------------------------------
+    Set rng = Application.InputBox("Seleccione un rango", "Obtener Rango", Type:=8)    ' Sets rng to be equal to the selected range
+
+    MsgBox "Las celdas seleccionadas fueron " & rng.Address                        ' Message of confirmation
+    
+    colnum = rng.Columns.Count                                                     ' Obtains number of columns
+    rownum = rng.Rows.Count                                                        ' Obtains number of rows
+    
+    ReDim matrix(colnum - 1, colnum - 1)
+
+    For i = 1 To colnum
+        For j = 1 To colnum
+            matrix(i - 1, j - 1) = Application.WorksheetFunction.Covariance_S(rng.Columns(i), rng.Columns(j))
+        Next j
+    Next i
+
+    ActiveWorkbook.Worksheets("Portafolio").[AA6].Resize(UBound(matrix, 1), UBound(matrix, 2)) = matrix
+    '------END CALCULATION OF PORTFOLIO´S COVARIANCE MATRIX---------------------------------------------------------------
+    
+End Sub
